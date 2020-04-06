@@ -126,7 +126,7 @@ public class QuantityTest {
         double feet = length.unitConvertor(Length.ConversionOfUnitType.FEET, 1);
         Assert.assertEquals(inch, feet, 0.0);
     }
-
+    // Yard
     @Test
     public void given1Yardand3Feet_ShouldReturnEqual() {
         Length length = new Length();
@@ -174,7 +174,7 @@ public class QuantityTest {
         double inch = length.unitConvertor(Length.ConversionOfUnitType.INCH, 36);
         Assert.assertEquals(inch, yard, 0.0);
     }
-///centimeter
+    //centimeter
     @Test
     public void given0Centimeterand0Centimeter_ShouldReturnEqual() {
         Length length = new Length();
@@ -204,6 +204,41 @@ public class QuantityTest {
         double inch = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
         double cm = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 5);
         Assert.assertEquals(inch,cm,0.0);
+    }
+    @Test
+    public void given2InchAnd2Inch_ShouldReturnEqualFourInches() {
+        Length length = new Length();
+        double inch1 = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
+        double inch2 = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
+        double inch = inch1+inch2;
+        Assert.assertEquals(4,inch,0.0);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_ShouldReturnEqualFourteenInches() {
+        Length length = new Length();
+        double feet1 = length.unitConvertor(Length.ConversionOfUnitType.FEET, 1);
+        double inch1 = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
+        double inch = feet1+inch1;
+        Assert.assertEquals(14,inch,0.0);
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_ShouldReturnEqualTwentyFourInches() {
+        Length length = new Length();
+        double feet1 = length.unitConvertor(Length.ConversionOfUnitType.FEET,1);
+        double feet2 = length.unitConvertor(Length.ConversionOfUnitType.FEET, 1);
+        double inch = feet1+feet2;
+        Assert.assertEquals(24,inch,0.0);
+    }
+
+    @Test
+    public void given2InchAnd2andHalfCentimeter_ShouldReturnEqualThreeInches() {
+        Length length = new Length();
+        double inch = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
+        double cm = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 2.5);
+        inch = inch+cm;
+        Assert.assertEquals(3,inch,0.0);
     }
 
 }
