@@ -1,6 +1,6 @@
 package com.quantitymeasurement;
 
-public class Length {
+public class Quantity {
 
     public enum ConversionOfUnitType {
         FEET(1*12.0),
