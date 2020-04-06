@@ -73,7 +73,6 @@ public class QuantityTest {
         Assert.assertEquals(true, nullCheck);
     }
 
-
     @Test
     public void givenInchClass_WhenEqual_ShouldReturnTrue() {
         Length length = new Length();
@@ -239,6 +238,90 @@ public class QuantityTest {
         double cm = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 2.5);
         inch = inch+cm;
         Assert.assertEquals(3,inch,0.0);
+    }
+    //Gallion , milliliter, liter //
+    @Test
+    public void given0GallonAnd0Gallon_ShouldReturnEqual() {
+        Length length = new Length();
+        double volume1 =length.unitConvertor(Length.ConversionOfUnitType.GALLON, 0);
+        double volume2 = length.unitConvertor(Length.ConversionOfUnitType.GALLON, 0);
+        Assert.assertEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void given0GallonAnd1Gallon_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double volume1 = length.unitConvertor(Length.ConversionOfUnitType.GALLON, 0);
+        double volume2 =length.unitConvertor(Length.ConversionOfUnitType.GALLON, 1);
+        Assert.assertNotEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void givenGallonNull_WhenEqual_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertEquals(true,nullCheck);
+    }
+
+    @Test
+    public void given0LitreAnd0Litre_ShouldReturnEqual() {
+        Length length = new Length();
+        double volume1 = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 0);
+        double volume2 = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 0);
+        Assert.assertEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void given0LitreAnd1Litre_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double volume1 = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 0);
+        double volume2 = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 1);
+        Assert.assertNotEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void givenLitreNull_WhenEqual_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertEquals(true,nullCheck);
+    }
+
+    @Test
+    public void given0MillilitreAnd0Millilitre_ShouldReturnEqual() {
+        Length length = new Length();
+        double volume1 = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 0);
+        double volume2 = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 0);
+        Assert.assertEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void given0MillilitreAnd1Millilitre_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double volume1 = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 0);
+        double volume2 = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 1);
+        Assert.assertNotEquals(volume1,volume2,0.0);
+    }
+
+    @Test
+    public void givenMillilitreNull_WhenEqual_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertEquals(true,nullCheck);
+    }
+    @Test
+    public void given1GallonAndThreePointSeventyEightLitres_ShouldReturnEqual() {
+        Length length = new Length();
+        double gallon = length.unitConvertor(Length.ConversionOfUnitType.GALLON, 1);
+        double litre = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 3.78);
+        Assert.assertEquals(litre,gallon,0.0);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_ShouldReturnEqual() {
+        Length length = new Length();
+        double litre = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 1);
+        double millilitre = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 1000);
+        Assert.assertEquals(millilitre,litre,0.0);
     }
 
 }

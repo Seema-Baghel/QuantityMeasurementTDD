@@ -6,7 +6,10 @@ public class Length {
         FEET(1*12.0),
         INCH(1.0),
         YARD(1*36.0),
-        CENTIMETER(1/2.5);
+        CENTIMETER(1/2.5),
+        GALLON(1*3.78),
+        LITRE(1.0),
+        MILLILITRE(1/1000.0);
 
         public Double type;
         ConversionOfUnitType(Double type){
