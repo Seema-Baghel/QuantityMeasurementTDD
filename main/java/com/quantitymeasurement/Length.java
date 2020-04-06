@@ -12,7 +12,9 @@ public class Length {
         MILLILITRE(1/1000.0),
         KILOGRAMS(1.0),
         GRAMS(1/1000.0),
-        TONNE(1*1000.0);
+        TONNE(1*1000.0),
+        FAHRENHEIT(1.0),
+        CELSIUS(9/5.0);
 
         public Double type;
         ConversionOfUnitType(Double type){
@@ -24,6 +26,9 @@ public class Length {
         }
     }
     public double unitConvertor(ConversionOfUnitType unit, double value) {
+        if(unit == ConversionOfUnitType.CELSIUS) {
+            return value*unit.getType()+32;
+        }
         return value*unit.getType();
     }
 

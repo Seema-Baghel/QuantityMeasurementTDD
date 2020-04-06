@@ -434,5 +434,58 @@ public class QuantityTest {
         double kilograms = tonne + grams;
         Assert.assertEquals(1001, kilograms, 0.0);
     }
+    @Test
+    public void given0FahrenheitAnd0Fahrenheit_ShouldReturnEqual() {
+        Length length = new Length();
+        double temprature1 = length.unitConvertor(Length.ConversionOfUnitType.FAHRENHEIT, 0);
+        double temprature2 = length.unitConvertor(Length.ConversionOfUnitType.FAHRENHEIT, 0);
+        Assert.assertEquals(temprature1,temprature2,0.0);
+    }
+
+    @Test
+    public void given0FahrenheitAnd1Fahrenheit_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double temprature1 = length.unitConvertor(Length.ConversionOfUnitType.FAHRENHEIT, 0);
+        double temprature2 = length.unitConvertor(Length.ConversionOfUnitType.FAHRENHEIT, 1);
+        Assert.assertNotEquals(temprature1,temprature2,0.0);
+    }
+
+    @Test
+    public void givenFahrenheitNull_WhenNull_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertTrue(nullCheck);
+    }
+
+    @Test
+    public void given0CelsiusAnd0Celsius_ShouldReturnEqual() {
+        Length length = new Length();
+        double temprature1 = length.unitConvertor(Length.ConversionOfUnitType.CELSIUS, 0);
+        double temprature2 = length.unitConvertor(Length.ConversionOfUnitType.CELSIUS, 0);
+        Assert.assertEquals(temprature1,temprature2,0.0);
+    }
+
+    @Test
+    public void given0CelsiusAnd1Celsius_ShouldReturnEqual() {
+        Length length = new Length();
+        double temprature1 = length.unitConvertor(Length.ConversionOfUnitType.CELSIUS, 0);
+        double temprature2 = length.unitConvertor(Length.ConversionOfUnitType.CELSIUS, 1);
+        Assert.assertNotEquals(temprature1,temprature2,0.0);
+    }
+
+    @Test
+    public void givenCelsiusNull_WhenNull_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertTrue(nullCheck);
+    }
+
+    @Test
+    public void givenTemperatureInFahrenheit_ShouldReturnTemperatureInCelsius() {
+        Length length = new Length();
+        double fahrenheit = length.unitConvertor(Length.ConversionOfUnitType.FAHRENHEIT, 212);
+        double celsius = length.unitConvertor(Length.ConversionOfUnitType.CELSIUS,100);
+        Assert.assertEquals(celsius,fahrenheit,0.0);
+    }
 
 }
