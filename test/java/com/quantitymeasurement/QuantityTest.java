@@ -323,5 +323,22 @@ public class QuantityTest {
         double millilitre = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 1000);
         Assert.assertEquals(millilitre,litre,0.0);
     }
+    @Test
+    public void given1GallonAndThreePointSeventyEightLitres_ShouldReturnEqualSevenPointFiftySevenLitres() {
+        Length length = new Length();
+        double gallon = length.unitConvertor(Length.ConversionOfUnitType.GALLON, 1);
+        double litre = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 3.785);
+        litre=gallon+litre;
+        Assert.assertEquals(7.57,litre,0.0);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_ShouldReturnEqualTwoLitres() {
+        Length length = new Length();
+        double litre = length.unitConvertor(Length.ConversionOfUnitType.LITRE, 1);
+        double millilitre = length.unitConvertor(Length.ConversionOfUnitType.MILLILITRE, 1000);
+        litre=litre+millilitre;
+        Assert.assertEquals(2,litre,0.0);
+    }
 
 }
