@@ -174,5 +174,36 @@ public class QuantityTest {
         double inch = length.unitConvertor(Length.ConversionOfUnitType.INCH, 36);
         Assert.assertEquals(inch, yard, 0.0);
     }
+///centimeter
+    @Test
+    public void given0Centimeterand0Centimeter_ShouldReturnEqual() {
+        Length length = new Length();
+        double cm1 = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 0);
+        double cm2 = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 0);
+        Assert.assertEquals(cm1,cm2,0.0);
+    }
+
+    @Test
+    public void given0Centimeterand1Centimeter_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double cm1 = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 0);
+        double cm2 = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 1);
+        Assert.assertNotEquals(cm1,cm2,0.0);
+    }
+
+    @Test
+    public void givenCentimeterNull_ShouldReturnEqual() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertEquals(true,nullCheck);
+    }
+
+    @Test
+    public void given2Inchand5Centimeter_ShouldReturnEqual() {
+        Length length = new Length();
+        double inch = length.unitConvertor(Length.ConversionOfUnitType.INCH, 2);
+        double cm = length.unitConvertor(Length.ConversionOfUnitType.CENTIMETER, 5);
+        Assert.assertEquals(inch,cm,0.0);
+    }
 
 }
