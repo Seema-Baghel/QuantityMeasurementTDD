@@ -9,7 +9,10 @@ public class Length {
         CENTIMETER(1/2.5),
         GALLON(1*3.785),
         LITRE(1.0),
-        MILLILITRE(1/1000.0);
+        MILLILITRE(1/1000.0),
+        KILOGRAMS(1.0),
+        GRAMS(1/1000.0),
+        TONNE(1*1000.0);
 
         public Double type;
         ConversionOfUnitType(Double type){

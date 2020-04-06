@@ -340,5 +340,99 @@ public class QuantityTest {
         litre=litre+millilitre;
         Assert.assertEquals(2,litre,0.0);
     }
+    // kilograms, grams, tonne
+    @Test
+    public void given0KilogramAnd0Kilograms_ShouldReturnEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 0);
+        Assert.assertEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void given0KilogramAnd1Kilograms_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 1);
+        Assert.assertNotEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void givenKilogramNull_WhenNull_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertTrue(nullCheck);
+    }
+
+    @Test
+    public void given0GramAnd0Grams_ShouldReturnEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 0);
+        Assert.assertEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void given0GramAnd1Grams_ShouldReturnEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 1);
+        Assert.assertNotEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void givenGramNull_WhenNull_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertTrue(nullCheck);
+    }
+
+    @Test
+    public void given0TonneAnd0Tonne_ShouldReturnEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 0);
+        Assert.assertEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void given0TonneAnd1Tonne_ShouldReturnNotEqual() {
+        Length length = new Length();
+        double weight1 = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 0);
+        double weight2 = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 1);
+        Assert.assertNotEquals(weight1,weight2,0.0);
+    }
+
+    @Test
+    public void givenTonneNull_WhenNull_ShouldReturnTrue() {
+        Length length = new Length();
+        boolean nullCheck = length.equals(null);
+        Assert.assertTrue(nullCheck);
+    }
+
+    @Test
+    public void given1KilogramAnd1000Grams_ShouldReturnEqual() {
+        Length length = new Length();
+        double kilograms = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 1);
+        double grams = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 1000);
+        Assert.assertEquals(grams,kilograms,0.0);
+    }
+
+    @Test
+    public void given1TonneAnd1000Kilograms_ShouldReturnEqual() {
+        Length length = new Length();
+        double tonne = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 1);
+        double kilograms = length.unitConvertor(Length.ConversionOfUnitType.KILOGRAMS, 1000.0);
+        Assert.assertEquals(tonne,kilograms,0.0);
+    }
+
+    @Test
+    public void given1TonneAnd1000Grams_ShouldReturnEqualToThousandAndOneKilograms() {
+        Length length = new Length();
+        double tonne = length.unitConvertor(Length.ConversionOfUnitType.TONNE, 1);
+        double grams = length.unitConvertor(Length.ConversionOfUnitType.GRAMS, 1000.0);
+        double kilograms = tonne + grams;
+        Assert.assertEquals(1001, kilograms, 0.0);
+    }
 
 }
